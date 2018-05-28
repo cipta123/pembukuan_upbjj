@@ -1,0 +1,73 @@
+input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+}
+
+input[type=date] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+}
+
+select{
+	background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+}
+
+textarea{
+	background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+}
+
+.isi{
+	margin: auto;
+    width: 50%;
+    margin-top: 50px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;  
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+#frm_1{
+  margin:auto;
+  width: 35%;
+}
+
+
+/*CSS Buat Berita Acara */
+#ba{
+   width: 80%;
+   margin:auto;
+}
+
+#ttdba, #ttdlpj{
+    display: grid;
+    grid-template-columns: 27% 15% 15% 37%;
+    grid-gap: 1em;
+    grid-auto-rows: minmax(150px, auto);
+
+}
+
+/*
+.satu{
+    background-color: red;
+}
+.dua{
+    background-color: blue;
+}
+.tiga{
+    background-color: yellow;
+}
+.empat{
+    background-color: green;
+}
+*/

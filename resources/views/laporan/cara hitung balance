@@ -1,0 +1,42 @@
+SELECT x.slno
+     , x.debit
+     , x.credit
+     , SUM(y.bal) balance 
+  FROM
+     ( 
+       SELECT *,debit-credit bal FROM temp
+     ) x
+  JOIN
+     ( 
+       SELECT *,debit-credit bal FROM temp
+     ) y
+    ON y.slno <= x.slno
+ GROUP 
+    BY x.slno;
+//---------------------------------------------------------------------//
+
+
+    SELECT 
+    `table`.`ID`,
+    `table`.`In`,
+    `table`.`Out`,
+    @Balance := @Balance + `table`.`In` - `table`.`Out` AS `Balance`
+FROM `table`, (SELECT @Balance := 0) AS variableInit
+ORDER BY `table`.`ID` ASC
+
+//------------------------------------------------------------------//
+SELECT
+    `balanceCalculation`.`ID`,
+    `balanceCalculation`.`In`,
+    `balanceCalculation`.`Out`,
+    `balanceCalculation`.`Balance`
+FROM (
+    SELECT 
+        `table`.`ID`,
+        `table`.`In`,
+        `table`.`Out`,
+        @Balance := @Balance + `table`.`In` - `table`.`Out` AS `Balance`
+    FROM `table`, (SELECT @Balance := 0) AS variableInit
+    ORDER BY `table`.`ID` ASC
+) AS `balanceCalculation`
+ORDER BY `balanceCalculation`.`ID` DESC
